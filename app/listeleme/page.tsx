@@ -24,10 +24,12 @@ export default function ListingPage() {
 
     const sortedFlights = useMemo(() => sortByType(flights, sortType), [sortType]);
 
+    const values = JSON.parse(window.localStorage.getItem('values') || '{}');
+
     return (
         <main className='flex min-h-screen flex-col p-8 gap-2 w-fit m-auto'>
             <span className='bg-thy-red px-12 py-1 text-white w-fit'>Uçuş</span>
-            <p className='text-thy-muted font-semibold text-2xl'>İstanbul - Antalya, 6 Yolcu</p>
+            <p className='text-thy-muted font-semibold text-2xl'>{`${values?.from} - ${values?.to}, ${values.person} Yolcu`}</p>
             <Promotion onChangePromotion={handleChangePromotion} showPromotion={showPromotion} />
             <div>
                 <div className='bg-thy text-white py-4 px-2 flex justify-end items-center gap-2 rounded-t'>

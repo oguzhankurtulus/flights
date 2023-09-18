@@ -12,7 +12,7 @@ interface SubData {
     rights: string[];
 }
 
-interface Data {
+export interface Data {
     id: string;
     originAirport: RecordContent;
     destinationAirport: RecordContent;
